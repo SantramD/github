@@ -386,7 +386,6 @@ a:focus-visible {
 .vehicle-image img,
 .fleet-photo img,
 .service-image img,
-.gallery-grid img,
 .about-intro > img,
 .contact-photo img {
   width: 100%;
@@ -394,13 +393,11 @@ a:focus-visible {
   object-fit: cover;
 }
 
-.vehicle-image img,
-.gallery-grid img {
+.vehicle-image img {
   transition: transform 350ms ease;
 }
 
-.vehicle-image:hover img,
-.gallery-grid figure:hover img {
+.vehicle-image:hover img {
   transform: scale(1.04);
 }
 
@@ -671,56 +668,157 @@ a:focus-visible {
   padding-top: 15px;
 }
 
-.gallery-grid {
-  display: grid;
-  grid-auto-rows: 230px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 15px;
-}
-
-.gallery-grid figure {
-  min-height: 0;
-  margin: 0;
+.gallery-carousel {
+  position: relative;
+  height: clamp(280px, 58vw, 590px);
   overflow: hidden;
+  border-radius: 6px;
+  background: #101621;
+}
+
+.gallery-carousel-slide {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  place-items: center;
+}
+
+.gallery-carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.gallery-carousel-slide figcaption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 10px 68px;
+  background: rgba(9, 16, 29, 0.7);
+  color: white;
+  font-size: 12px;
+}
+
+.gallery-carousel-arrow {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  display: grid;
+  width: 44px;
+  height: 54px;
+  transform: translateY(-50%);
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.55);
   border-radius: 5px;
-  background: #eef0f1;
+  background: rgba(16, 22, 33, 0.72);
+  color: white;
+  font-size: 34px;
+  line-height: 1;
+  cursor: pointer;
 }
 
-.gallery-grid figure:first-child {
-  grid-row: span 2;
+.gallery-carousel-previous {
+  left: 14px;
 }
 
-.gallery-grid figure:nth-child(4) {
-  grid-column: span 2;
+.gallery-carousel-next {
+  right: 14px;
 }
 
-.testimonial {
-  max-width: 780px;
-  margin: 75px auto 0;
-  padding: 36px 28px;
-  border-top: 1px solid var(--line);
+.gallery-carousel-controls {
+  display: grid;
+  gap: 11px;
+  margin-top: 12px;
+}
+
+.gallery-carousel-controls > span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.gallery-carousel-thumbnails {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.gallery-carousel-thumbnail {
+  width: 82px;
+  height: 58px;
+  flex: 0 0 auto;
+  overflow: hidden;
+  padding: 2px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+}
+
+.gallery-carousel-thumbnail.is-active {
+  border-color: var(--green);
+}
+
+.gallery-carousel-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-testimonials {
+  margin-top: 65px;
+}
+
+.gallery-testimonials .section-heading {
+  margin-bottom: 24px;
+}
+
+.testimonial-video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.testimonial-video-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #101621;
+}
+
+.testimonial-video-card iframe,
+.testimonial-video-placeholder {
+  display: grid;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  place-items: center;
+  border: 0;
+}
+
+.testimonial-video-placeholder {
+  align-content: center;
+  gap: 8px;
+  background: #101621;
+  color: white;
   text-align: center;
 }
 
-.testimonial-stars {
-  margin-top: 18px;
-  color: #efb922;
-  font-size: 19px;
-  letter-spacing: 4px;
+.testimonial-video-placeholder span {
+  display: grid;
+  width: 48px;
+  height: 34px;
+  place-items: center;
+  border-radius: 8px;
+  background: #d82929;
+  font-size: 17px;
 }
 
-.testimonial blockquote {
-  margin: 12px 0;
-  color: var(--navy);
-  font-family: Georgia, serif;
-  font-size: clamp(20px, 3vw, 28px);
-  line-height: 1.5;
-}
-
-.testimonial > p {
+.testimonial-video-placeholder p {
   margin: 0;
-  color: var(--muted);
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .about-intro {
@@ -1067,6 +1165,12 @@ a:focus-visible {
   margin: 3px 0 0;
   color: var(--muted);
   font-size: 11px;
+}
+
+.vehicle-gallery-header .vehicle-gallery-note {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 10px;
 }
 
 .vehicle-gallery-close {
@@ -1451,15 +1555,18 @@ a:focus-visible {
     font-size: 10px;
   }
 
-  .gallery-grid {
-    grid-auto-rows: 175px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 9px;
+  .gallery-carousel {
+    height: min(62vh, 460px);
+    min-height: 260px;
   }
 
-  .testimonial {
-    margin-top: 48px;
-    padding: 28px 8px;
+  .gallery-carousel-slide figcaption {
+    padding: 9px 54px;
+    font-size: 10px;
+  }
+
+  .testimonial-video-grid {
+    grid-template-columns: 1fr;
   }
 
   .about-intro {
@@ -1599,8 +1706,26 @@ a:focus-visible {
     grid-template-columns: 1fr;
   }
 
-  .gallery-grid {
-    grid-auto-rows: 145px;
+  .gallery-carousel {
+    height: min(52vh, 380px);
+    min-height: 220px;
+  }
+
+  .gallery-carousel-arrow {
+    width: 36px;
+    height: 44px;
+  }
+
+  .gallery-carousel-previous {
+    left: 8px;
+  }
+
+  .gallery-carousel-next {
+    right: 8px;
+  }
+
+  .gallery-carousel-slide figcaption {
+    padding: 8px 48px;
   }
 
   .values-grid {

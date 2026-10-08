@@ -31,12 +31,40 @@ const heroSlides = [
   "grp-pic11.jpeg",
 ].map((image) => `${media}${image}`);
 
+const representativeCarInteriors = [
+  {
+    image: "representative-car-interior-1.jpg",
+    type: "Representative car interior",
+    representative: true,
+  },
+  {
+    image: "representative-car-interior-2.jpg",
+    type: "Representative car interior",
+    representative: true,
+  },
+];
+const representativeBusInteriors = [
+  {
+    image: "representative-bus-interior-1.jpg",
+    type: "Representative bus interior",
+    representative: true,
+  },
+  {
+    image: "representative-bus-interior-2.jpg",
+    type: "Representative bus interior",
+    representative: true,
+  },
+];
+
 const cars = [
   {
     name: "Sedan Comfort",
     subtitle: "Comfortable 4+1 Seating",
     image: "5305da8b96c637065b1456f671485179.webp",
-    images: [{ image: "5305da8b96c637065b1456f671485179.webp", type: "Exterior" }],
+    images: [
+      { image: "5305da8b96c637065b1456f671485179.webp", type: "Exterior" },
+      ...representativeCarInteriors,
+    ],
     rate: "₹14/km*",
     description:
       "Comfortable 4+1 seating with air conditioning, GPS, spacious luggage storage, and a professional driver for city rides or outstation journeys.",
@@ -52,7 +80,10 @@ const cars = [
     name: "Maruti Invicto",
     subtitle: "Premium 7-seater SUV",
     image: "2dbbeccb3feff64a6bb678d8164820a0.webp",
-    images: [{ image: "2dbbeccb3feff64a6bb678d8164820a0.webp", type: "Exterior" }],
+    images: [
+      { image: "2dbbeccb3feff64a6bb678d8164820a0.webp", type: "Exterior" },
+      ...representativeCarInteriors,
+    ],
     rate: "₹25/km*",
     description:
       "The Maruti Suzuki Invicto is a premium 7-seater SUV designed for comfort, space, and style. It offers a refined driving experience with modern features and a premium interior. Perfect for family journeys, long drives, and everyday comfort.",
@@ -67,7 +98,10 @@ const cars = [
     name: "Toyota Innova Hycross",
     subtitle: "Premium 7/8-seater MPV",
     image: "crst1-1-1.jpeg",
-    images: [{ image: "crst1-1-1.jpeg", type: "Exterior" }],
+    images: [
+      { image: "crst1-1-1.jpeg", type: "Exterior" },
+      ...representativeCarInteriors,
+    ],
     rate: "₹25/km*",
     description:
       "The Toyota Innova Hycross is a premium 7/8-seater MPV built for comfort, space, and practicality. It combines a refined design with modern features and a smooth driving experience.",
@@ -84,11 +118,7 @@ const cars = [
     image: "imm-600x398.webp",
     images: [
       { image: "imm-600x398.webp", type: "Exterior" },
-      { image: "crst1-1.jpeg", type: "Exterior" },
-      { image: "crst1-2-1.jpeg", type: "Exterior" },
-      { image: "inv1-1.jpeg", type: "Exterior" },
-      { image: "inv1-2.jpeg", type: "Exterior" },
-      { image: "inv1-3.jpeg", type: "Exterior" },
+      ...representativeCarInteriors,
     ],
     rate: "₹20/km*",
     description:
@@ -110,8 +140,7 @@ const buses = [
     image: "Mule-Travels-4.png",
     images: [
       { image: "Mule-Travels-4.png", type: "Exterior" },
-      { image: "WhatsApp-Image-2026-09-21-at-4.01.43-PM-3.webp", type: "Interior" },
-      { image: "WhatsApp-Image-2026-09-21-at-4.01.44-PM-1.jpeg", type: "Interior" },
+      ...representativeBusInteriors,
     ],
     rate: "₹34/km",
     description:
@@ -124,8 +153,7 @@ const buses = [
     image: "WhatsApp-Image-2026-09-21-at-4.01.43-PM-1.jpeg",
     images: [
       { image: "WhatsApp-Image-2026-09-21-at-4.01.43-PM-1.jpeg", type: "Exterior" },
-      { image: "WhatsApp-Image-2026-09-21-at-4.01.43-PM-3.webp", type: "Interior" },
-      { image: "WhatsApp-Image-2026-09-21-at-4.01.44-PM-1.jpeg", type: "Interior" },
+      ...representativeBusInteriors,
     ],
     rate: "₹60/km",
     description:
@@ -138,8 +166,7 @@ const buses = [
     image: "Mule-Travels-1.png",
     images: [
       { image: "Mule-Travels-1.png", type: "Exterior" },
-      { image: "WhatsApp-Image-2026-09-21-at-4.01.43-PM-3.webp", type: "Interior" },
-      { image: "WhatsApp-Image-2026-09-21-at-4.01.44-PM-1.jpeg", type: "Interior" },
+      ...representativeBusInteriors,
     ],
     rate: "₹48/km",
     description:
@@ -152,8 +179,7 @@ const buses = [
     image: "WhatsApp-Image-2026-09-21-at-4.01.43-PM-2.jpeg",
     images: [
       { image: "WhatsApp-Image-2026-09-21-at-4.01.43-PM-2.jpeg", type: "Exterior" },
-      { image: "WhatsApp-Image-2026-09-21-at-4.01.43-PM-3.webp", type: "Interior" },
-      { image: "WhatsApp-Image-2026-09-21-at-4.01.44-PM-1.jpeg", type: "Interior" },
+      ...representativeBusInteriors,
     ],
     rate: "₹48/km",
     description:
@@ -166,8 +192,7 @@ const buses = [
     image: "new1-24.jpeg",
     images: [
       { image: "new1-24.jpeg", type: "Exterior" },
-      { image: "WhatsApp-Image-2026-09-21-at-4.01.43-PM-3.webp", type: "Interior" },
-      { image: "WhatsApp-Image-2026-09-21-at-4.01.44-PM-1.jpeg", type: "Interior" },
+      ...representativeBusInteriors,
     ],
     rate: "₹34/km",
     permit: "All India Permit",
@@ -181,8 +206,7 @@ const buses = [
     image: "d1ba0f80adefb7307bd88ad498557fba.webp",
     images: [
       { image: "d1ba0f80adefb7307bd88ad498557fba.webp", type: "Exterior" },
-      { image: "WhatsApp-Image-2026-09-21-at-4.01.43-PM-3.webp", type: "Interior" },
-      { image: "WhatsApp-Image-2026-09-21-at-4.01.44-PM-1.jpeg", type: "Interior" },
+      ...representativeBusInteriors,
     ],
     rate: "₹26/km",
     permit: "All India Permit",
@@ -257,6 +281,26 @@ const gallery = [
   },
   { image: "cars12.jpeg", alt: "A Mule Travels car" },
   { image: "office1.jpeg", alt: "Mule Travels office" },
+  {
+    image: "representative-car-interior-1.jpg",
+    alt: "Illustrative car interior, not a photo of a specific Mule Travels vehicle",
+  },
+  {
+    image: "representative-bus-interior-1.jpg",
+    alt: "Illustrative coach interior, not a photo of a specific Mule Travels bus",
+  },
+  {
+    image: "representative-bus-interior-2.jpg",
+    alt: "Illustrative coach seating, not a photo of a specific Mule Travels bus",
+  },
+];
+
+const testimonialVideos = [
+  // Add approved YouTube video IDs here when the customer videos are ready.
+  { title: "Customer testimonial video 1", youtubeId: "" },
+  { title: "Customer testimonial video 2", youtubeId: "" },
+  { title: "Customer testimonial video 3", youtubeId: "" },
+  { title: "Customer testimonial video 4", youtubeId: "" },
 ];
 
 function BookLink({ children = "Book Now", className = "button button-green" }) {
@@ -572,6 +616,11 @@ function PhotoGalleryDialog({ photoSet, onClose }) {
           <div>
             <span className="section-eyebrow">{currentImage.type} PHOTO</span>
             <h2 id="vehicle-gallery-title">{photoSet.name}</h2>
+            {currentImage.representative && (
+              <p className="vehicle-gallery-note">
+                Illustrative interior, not this exact vehicle.
+              </p>
+            )}
             <p>
               Photo {imageIndex + 1} of {images.length}
             </p>
@@ -732,6 +781,12 @@ function ServicesPage({ onOpenGallery }) {
 }
 
 function GalleryPage() {
+  const [imageIndex, setImageIndex] = useState(0);
+  const currentImage = gallery[imageIndex];
+  const showImage = (step) => {
+    setImageIndex((index) => (index + step + gallery.length) % gallery.length);
+  };
+
   return (
     <main>
       <PageTitle>Gallary</PageTitle>
@@ -741,24 +796,91 @@ function GalleryPage() {
           title="Explorer Highlights"
           text="Browse premium cars and buses ready for local and outstation journeys. Join us to see amazing journeys and stories that celebrate every adventure."
         />
-        <div className="gallery-grid">
-          {gallery.map((item) => (
-            <figure key={item.image}>
-              <img src={`${media}${item.image}`} alt={item.alt} loading="lazy" />
-            </figure>
-          ))}
+        <div
+          aria-label="Travel photo gallery"
+          className="gallery-carousel"
+          role="region"
+        >
+          <button
+            aria-label="Previous gallery photo"
+            className="gallery-carousel-arrow gallery-carousel-previous"
+            onClick={() => showImage(-1)}
+            type="button"
+          >
+            ‹
+          </button>
+          <figure className="gallery-carousel-slide" aria-live="polite">
+            <img
+              key={currentImage.image}
+              src={`${media}${currentImage.image}`}
+              alt={currentImage.alt}
+            />
+            <figcaption>{currentImage.alt}</figcaption>
+          </figure>
+          <button
+            aria-label="Next gallery photo"
+            className="gallery-carousel-arrow gallery-carousel-next"
+            onClick={() => showImage(1)}
+            type="button"
+          >
+            ›
+          </button>
         </div>
-        <div className="testimonial">
-          <span className="section-eyebrow">WHAT OUR TRAVELERS SAY</span>
-          <div className="testimonial-stars" aria-label="5 out of 5 stars">
-            ★★★★★
+        <div className="gallery-carousel-controls">
+          <span aria-live="polite">
+            Photo {imageIndex + 1} of {gallery.length}
+          </span>
+          <div
+            aria-label="Choose a gallery photo"
+            className="gallery-carousel-thumbnails"
+            role="group"
+          >
+            {gallery.map((item, index) => (
+              <button
+                aria-label={`Show gallery photo ${index + 1}: ${item.alt}`}
+                aria-pressed={index === imageIndex}
+                className={
+                  index === imageIndex
+                    ? "gallery-carousel-thumbnail is-active"
+                    : "gallery-carousel-thumbnail"
+                }
+                key={item.image}
+                onClick={() => setImageIndex(index)}
+                type="button"
+              >
+                <img src={`${media}${item.image}`} alt="" loading="lazy" />
+              </button>
+            ))}
           </div>
-          <blockquote>
-            “I had the time of my life exploring with Mule Travels. Every detail
-            was taken care of, making the adventure truly memorable!”
-          </blockquote>
-          <p>— A Mule Travels guest</p>
         </div>
+        <section className="gallery-testimonials">
+          <SectionHeading
+            eyebrow="REAL TRAVEL STORIES"
+            title="Customer video testimonials"
+            text="Customer videos will appear here when their YouTube links are added."
+          />
+          <div className="testimonial-video-grid">
+            {testimonialVideos.map((video) => (
+              <article className="testimonial-video-card" key={video.title}>
+                {video.youtubeId ? (
+                  <iframe
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}`}
+                    title={video.title}
+                  />
+                ) : (
+                  <div className="testimonial-video-placeholder">
+                    <span aria-hidden="true">▶</span>
+                    <p>Customer video coming soon</p>
+                  </div>
+                )}
+              </article>
+            ))}
+          </div>
+        </section>
       </section>
       <JourneyCTA />
     </main>
